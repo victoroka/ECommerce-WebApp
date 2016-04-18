@@ -1,0 +1,31 @@
+Mon Apr 18 18:32:55 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+----------------------------------------------------------------
+Mon Apr 18 18:32:56 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-2b4a-5fd2-ffff80c9ef88
+no diretório de banco de dados /Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db/ECommerceDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_31-b13
+user.dir=/Applications/NetBeans/glassfish-4.1/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.11.1
+derby.system.home=/Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 18 18:32:58 BRT 2016:
+Encerrando a instância a816c00e-0154-2b4a-5fd2-ffff80c9ef88
+Mon Apr 18 18:32:58 BRT 2016 Thread[DRDAConnThread_3,5,main] (DATABASE = ECommerceDB), (DRDAID = {2}), Banco de dados 'ECommerceDB' fechado.
+----------------------------------------------------------------
+Mon Apr 18 18:33:05 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 560740aa-0154-2b4a-5fd2-ffff80c9ef88
+no diretório de banco de dados /Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db/ECommerceDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_31-b13
+user.dir=/Applications/NetBeans/glassfish-4.1/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.11.1
+derby.system.home=/Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''

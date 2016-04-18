@@ -11,22 +11,27 @@ package com.lp2.model.javabeans;
  */
 public class Usuario {
     
-    private int idUser;
+    private long idUser;
     private String name;
     private String login;
     private String password;
 
+    public Usuario(){
+        //default pro read
+    }
+    
     public Usuario(String name, String login, String password) {
         this.name = name;
         this.login = login;
         this.password = password;
     }
 
-    public int getIdUser() {
+
+    public long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(long idUser) {
         this.idUser = idUser;
     }
     
