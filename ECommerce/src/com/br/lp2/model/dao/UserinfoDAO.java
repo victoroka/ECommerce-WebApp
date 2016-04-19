@@ -7,7 +7,7 @@ package com.br.lp2.model.dao;
 
 import com.br.lp2.model.SingletonConnection;
 import com.lp2.model.javabeans.Userinfo;
-import com.lp2.model.javabeans.Usuario;
+// import com.lp2.model.javabeans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
