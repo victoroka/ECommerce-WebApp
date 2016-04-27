@@ -5,12 +5,14 @@
  */
 package com.lp2.model.javabeans;
 
+import java.util.Date;
+
 
 /**
  *
  * @author Lucas
  */
-public class Userinfo {
+public class UserInfo {
     
     private long id_userinfo;
     private String nome;
@@ -19,9 +21,9 @@ public class Userinfo {
     private int telefone;
     private String rg;
     private int cpf;
-    //private date dataNasc;
+    private Date dataNasc;
 
-    public Userinfo(String nome, String email, String endereco, int telefone, String rg, int cpf) {
+    public UserInfo(String nome, String email, String endereco, int telefone, String rg, int cpf) {
         this.nome = nome;
         this.email = email;
         this.endereco = endereco;
@@ -30,6 +32,10 @@ public class Userinfo {
         this.cpf = cpf;
     }
 
+    public UserInfo() {
+        // Construtor default para o read()
+    }
+    
     public long getId_userinfo() {
         return id_userinfo;
     }
@@ -84,6 +90,14 @@ public class Userinfo {
 
     public void setCpf(int cpf) {
         this.cpf = cpf;
+    }
+
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
     }
 
     @Override

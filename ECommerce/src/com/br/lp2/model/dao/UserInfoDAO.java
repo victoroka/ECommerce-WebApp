@@ -6,12 +6,14 @@
 package com.br.lp2.model.dao;
 
 import com.br.lp2.model.SingletonConnection;
-import com.lp2.model.javabeans.Userinfo;
+import com.lp2.model.javabeans.UserInfo;
 // import com.lp2.model.javabeans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,16 +22,16 @@ import java.util.logging.Logger;
  *
  * @author Lucas
  */
-public class UserinfoDAO implements GenericDAO<Userinfo>{
+public class UserInfoDAO implements GenericDAO<UserInfo>{
     
     private final Connection connection;
  
-    public UserinfoDAO() throws SQLException, IllegalAccessException, InstantiationException{
+    public UserInfoDAO() {
         this.connection = SingletonConnection.getIntance().getConnection();
     }
 
     @Override
-    public long create(Userinfo e) {
+    public long create(UserInfo e) {
       long resposta = -1;   
         try {
             //passo 2 - preparar sql e statement
@@ -65,17 +67,78 @@ public class UserinfoDAO implements GenericDAO<Userinfo>{
     }
 
     @Override
-    public List<Userinfo> read() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<UserInfo> read() {
+        List<UserInfo> usuariosInfo = new ArrayList<>();
+        try {
+            // PASSO 2
+            String sql = "SELECT * FROM userinfo";
+            PreparedStatement pst = connection.prepareStatement(sql);
+
+            // PASSO 3
+            ResultSet rs = pst.executeQuery();
+
+            // PASSO 4
+            while (rs != null && rs.next()) {
+                long idUsuarioInfo = rs.getLong("id_userinfo");
+                String nomeCompleto = rs.getString("fullname");
+                String email = rs.getString("email");
+                int telefone = rs.getInt("telefone");
+                String endereco = rs.getString("endereco");
+                String rg = rs.getString("rg");
+                int cpf = rs.getInt("cpf");
+                Date dataNascimento = rs.getDate("datanasc");
+
+                UserInfo userInfo = new UserInfo();
+                userInfo.setNome(nomeCompleto);
+                userInfo.setEmail(email);
+                userInfo.setTelefone(telefone);
+                userInfo.setEndereco(endereco);
+                userInfo.setRg(rg);
+                userInfo.setCpf(cpf);
+                userInfo.setDataNasc(dataNascimento);
+
+                usuariosInfo.add(userInfo);
+            }
+
+            // PASSO 5
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserInfoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuariosInfo;
     }
 
     @Override
-    public Userinfo readById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public UserInfo readById(long id) {
+        UserInfo usuarioInfo = null;
+        try {
+            // PASSO 2
+            String sql = "SELECT * FROM userinfo WHERE id_userinfo=?";
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setLong(1, id);
+
+            // PASSO 3
+            ResultSet rs = pst.executeQuery();
+
+            // PASSO 4
+            while (rs != null && rs.next()) {
+                usuarioInfo = new UserInfo();
+                usuarioInfo.setId_userinfo(id);
+                usuarioInfo.setNome(rs.getString("fullname"));
+                usuarioInfo.setEmail(rs.getString("email"));
+                // usuarioInfo.getDataNascimento(rs.getDate("data_nascimento"));
+            }
+
+            // PASSO 5
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserInfoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuarioInfo;
     }
 
     @Override
-    public boolean update(Userinfo e) {
+    public boolean update(UserInfo e) {
        boolean resposta = false;
         
         
@@ -106,7 +169,7 @@ public class UserinfoDAO implements GenericDAO<Userinfo>{
     }
 
     @Override
-    public boolean delete(Userinfo e) {
+    public boolean delete(UserInfo e) {
     boolean resposta = false;
        
        

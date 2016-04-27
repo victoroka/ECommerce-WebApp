@@ -26,16 +26,16 @@ public class SingletonConnection {
     public String password = bundle.getString("password");
     public String driver = bundle.getString("driver");
 
-    private SingletonConnection() throws SQLException, InstantiationException, IllegalAccessException {
+    private SingletonConnection() {
         try {
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(url, username, password);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(SingletonConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static SingletonConnection getIntance() throws SQLException, InstantiationException, IllegalAccessException {
+    public static SingletonConnection getIntance() {
         if (instance == null) {
             instance = new SingletonConnection();
         }

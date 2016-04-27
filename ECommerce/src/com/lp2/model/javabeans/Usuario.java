@@ -17,7 +17,7 @@ public class Usuario {
     private String password;
 
     public Usuario(){
-        //default pro read
+        // Default pro read()
     }
     
     public Usuario(String name, String login, String password) {
@@ -26,6 +26,11 @@ public class Usuario {
         this.password = password;
     }
 
+    // Construtor para o readById()
+    public Usuario(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 
     public long getIdUser() {
         return idUser;
