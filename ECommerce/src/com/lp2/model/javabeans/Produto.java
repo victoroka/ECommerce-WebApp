@@ -11,6 +11,7 @@ package com.lp2.model.javabeans;
  */
 public class Produto {
     
+    private long id_produto;
     private int productCode;
     private String productName;
     private double price;
@@ -23,6 +24,19 @@ public class Produto {
         this.quantity = quantity;
     }
 
+    public Produto() {
+        //read
+    }
+
+    public long getId_produto() {
+        return id_produto;
+    }
+
+    public void setId_produto(long id_produto) {
+        this.id_produto = id_produto;
+    }
+
+    
     public int getProductCode() {
         return productCode;
     }
@@ -57,7 +71,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "productCode=" + productCode + ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + '}';
-    }
-    
+        return "Produto{" + "id_produto=" + id_produto + ", productCode=" + productCode + ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + '}';
+    }    
 }
