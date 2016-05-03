@@ -1,38 +1,12 @@
-Mon May 02 16:56:50 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
-----------------------------------------------------------------
-Mon May 02 16:56:52 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-730b-7036-ffff80c9ef88
-no diretório de banco de dados /Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db/ECommerceDB 
-
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_31-b13
-user.dir=/Applications/NetBeans/glassfish-4.1/javadb
-os.name=Mac OS X
-os.arch=x86_64
-<<<<<<< Updated upstream
-os.version=10.11.1
-derby.system.home=/Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db
-Carregador de classe do banco de dados iniciado - derby.database.classpath=''
-<<<<<<< HEAD
-----------------------------------------------------------------
-Mon May 02 17:45:20 BRT 2016: Shutting down Derby engine
-----------------------------------------------------------------
-Mon May 02 17:45:20 BRT 2016:
-Encerrando a instância a816c00e-0154-730b-7036-ffff80c9ef88
-----------------------------------------------------------------
-=======
-=======
-os.version=10.11.4
-derby.system.home=/Users/VictorOka/GitHub/ProjetoLP/ECommerce/db
-Database Class Loader started - derby.database.classpath=''
-Wed Apr 27 14:29:38 BRT 2016 Thread[DRDAConnThread_2,5,main] (XID = 407), (SESSIONID = 0), (DATABASE = ECommerceDB), (DRDAID = {1}), Cleanup action starting
-java.sql.SQLNonTransientConnectionException: Ocorreu uma falha de autenticação da conexão.  Motivo: Autenticação inválida..
+Tue May 03 17:55:43 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Tue May 03 17:55:44 BRT 2016 Thread[DRDAConnThread_2,5,main] Cleanup action starting
+java.sql.SQLException: Banco de dados 'EmpresaDB' não encontrado.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
 	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
@@ -46,12 +20,12 @@ java.sql.SQLNonTransientConnectionException: Ocorreu uma falha de autenticação
 	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: java.sql.SQLException: Ocorreu uma falha de autenticação da conexão.  Motivo: Autenticação inválida..
+Caused by: java.sql.SQLException: Banco de dados 'EmpresaDB' não encontrado.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	... 19 more
 ============= begin nested exception, level (1) ===========
-java.sql.SQLException: Ocorreu uma falha de autenticação da conexão.  Motivo: Autenticação inválida..
+java.sql.SQLException: Banco de dados 'EmpresaDB' não encontrado.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
@@ -59,7 +33,7 @@ java.sql.SQLException: Ocorreu uma falha de autenticação da conexão.  Motivo:
 	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
 	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
@@ -75,12 +49,17 @@ java.sql.SQLException: Ocorreu uma falha de autenticação da conexão.  Motivo:
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Wed Apr 27 14:29:38 BRT 2016 Thread[DRDAConnThread_2,5,main] (DATABASE = ECommerceDB), (DRDAID = {1}), Ocorreu uma falha de autenticação da conexão.  Motivo: Autenticação inválida..
+Tue May 03 17:55:44 BRT 2016 Thread[DRDAConnThread_2,5,main] (DATABASE = EmpresaDB), (DRDAID = {1}), Banco de dados 'EmpresaDB' não encontrado.
 ----------------------------------------------------------------
-Wed Apr 27 16:00:41 BRT 2016: Shutting down Derby engine
-----------------------------------------------------------------
-Wed Apr 27 16:00:41 BRT 2016:
-Shutting down instance a816c00e-0154-58c4-ddf5-ffff9967977a on database directory /Users/VictorOka/GitHub/ProjetoLP/ECommerce/db/ECommerceDB with class loader sun.misc.Launcher$AppClassLoader@266474c2 
-----------------------------------------------------------------
->>>>>>> Stashed changes
->>>>>>> origin/master
+Tue May 03 17:55:47 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-7867-ae60-ffff80c9ef88
+no diretório de banco de dados /Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db/ECommerceDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_31-b13
+user.dir=/Applications/NetBeans/glassfish-4.1/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.11.1
+derby.system.home=/Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
