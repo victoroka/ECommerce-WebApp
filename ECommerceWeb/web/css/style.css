@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03/05/2016, 18:28:02
+    Author     : Victor
+*/
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+body {
+    margin: 10px;
+}
+section{
+    margin: 25px;
+}
+nav {
+    margin-top: 35px;
+    padding: 30px;
+    text-align: center;
+    font-family: Raleway;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+}
+nav form{
+    margin: -5px 0px 24px 0px;
+    z-index: 99;
+    float: right;
+    clear: both;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav form input:focus{
+    outline: none;
+}
+nav form input{
+    border-radius: 8px;
+    padding: 10px;
+    margin-right: 5px;
+    border: none;
+
+}
+nav form input[type="submit"]{
+    background-color: darkcyan;
+    color: white;
+}
+.cadastrar{
+    float: right;
+    clear: both;
+    margin-top: -20px;
+    margin-right: 110px;
+    text-decoration: none;
+}
+#nav-3 {
+    background: #EEA200;
+}
+.link-3 {
+    transition: 0.4s;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+.link-3:hover {
+    background-color: #ffffff;
+    color: #EEA200;
+    padding: 15px 10px;
+}
+.container{
+    margin-top: 80px;
+}
