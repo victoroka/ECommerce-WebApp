@@ -5,11 +5,13 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VictorOka
  */
-public class Administrador extends Usuario {
+public class Administrador extends Usuario implements Serializable {
     
     private int adminCode;
 

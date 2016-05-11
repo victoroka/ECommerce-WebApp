@@ -5,23 +5,29 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VictorOka
  */
-public class Produto {
+public class Produto implements Serializable{
     
     private long id_produto;
-    private int productCode;
+    private long productCode;
     private String productName;
     private double price;
-    private int quantity;
+    private String descricao;
+    private String imagem;
+    private int quantidade;
 
-    public Produto(int productCode, String productName, double price, int quantity) {
+    public Produto(long productCode, String productName, double price, String descricao, String imagem, int quantidade) {
         this.productCode = productCode;
         this.productName = productName;
         this.price = price;
-        this.quantity = quantity;
+        this.descricao = descricao;
+        this.imagem = imagem;
+        this.quantidade = quantidade;
     }
 
     public Produto() {
@@ -37,11 +43,11 @@ public class Produto {
     }
 
     
-    public int getProductCode() {
+    public long getProductCode() {
         return productCode;
     }
 
-    public void setProductCode(int productCode) {
+    public void setProductCode(long productCode) {
         this.productCode = productCode;
     }
 
@@ -61,16 +67,33 @@ public class Produto {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
     public String toString() {
-        return "Produto{" + "id_produto=" + id_produto + ", productCode=" + productCode + ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + '}';
-    }    
+        return "Produto{" + "id_produto=" + id_produto + ", productCode=" + productCode + ", productName=" + productName + ", price=" + price + ", descricao=" + descricao + ", imagem=" + imagem + ", quantidade=" + quantidade + '}';
+    }
+     
 }

@@ -5,6 +5,7 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author VictorOka
  */
-public class Carrinho {
+public class Carrinho implements Serializable {
 
     private double totalCart;
     private ItemCompra itemCompra;

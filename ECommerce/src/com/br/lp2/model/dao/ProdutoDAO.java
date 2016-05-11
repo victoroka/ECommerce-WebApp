@@ -29,7 +29,7 @@ public class ProdutoDAO implements GenericDAO<Produto>{
     }
 
     @Override
-    public long create(Produto e) {
+    public void create(Produto e) {
        long resposta = -1;
         try {
             //passo 2 - preparar sql e statement
@@ -38,7 +38,7 @@ public class ProdutoDAO implements GenericDAO<Produto>{
             PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS); //retorna a chave 
             pst.setString(1, e.getProductName()); 
             pst.setDouble(2, e.getPrice()); 
-            pst.setInt(3, e.getProductCode());
+            pst.setLong(3, e.getProductCode());
             //pst.setString(4, e.ge)
             
             
@@ -59,8 +59,6 @@ public class ProdutoDAO implements GenericDAO<Produto>{
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        return resposta;
     }
 
     @Override
@@ -74,7 +72,7 @@ public class ProdutoDAO implements GenericDAO<Produto>{
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getProductName()); //nome do produto
             pst.setDouble(2, e.getPrice()); //preco do produto
-            pst.setInt(3, e.getProductCode()); //codigo do produto
+            pst.setLong(3, e.getProductCode()); //codigo do produto
 
             //passo 3 
             int resultado = pst.executeUpdate();

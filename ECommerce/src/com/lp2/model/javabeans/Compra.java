@@ -5,13 +5,14 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author VictorOka
  */
-public class Compra {
+public class Compra implements Serializable {
     
     private int code;
     private double total;

@@ -6,6 +6,7 @@
 package com.br.lp2.model.dao;
 
 import com.br.lp2.model.SingletonConnection;
+import com.lp2.model.javabeans.UserInfo;
 import com.lp2.model.javabeans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,36 +29,24 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
         this.connection = SingletonConnection.getIntance().getConnection();
     }
 
-    @Override
-    public long create(Usuario e) {
-        long resposta = -1;
+    public long createUser(Usuario e) {
+        long generatedKey = 0;
         try {
             //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO usuario(username, password) VALUES (?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
-
-            PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS); //retorna a chave 
+            String sql = "INSERT INTO usuario(username, password, tipo) VALUES (?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getLogin()); //1o interrogaçao eh uma string e recebe o nome do usuario
             pst.setString(2, e.getPassword()); //2a interrogaçao eh uma string e recebe a senha
-
-            //passo 3 - executar a consulta
-            int resultado = pst.executeUpdate(); //linhas afetadas
-
-            //passo 4 - tratar os resultados
-            if (resultado > 0) {
-                ResultSet rs2 = pst.getGeneratedKeys(); //buscar a chave do banco
-                if (rs2 != null && rs2.next()) {
-                    resposta = rs2.getLong(1);
-                }
-            }
-
+            pst.setInt(3, e.getTipo());
+            pst.execute(); //linhas afetadas
+            generatedKey = e.getIdUser()+1;
             //passo 5 - fechar tudo (statement e conexao quando possivel)
             pst.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        return resposta;
+        return generatedKey;
     }
 
     @Override
@@ -65,22 +54,39 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
         List<Usuario> usuarios = new ArrayList<>();
         try {
             //PASSO 2
-            String sql = "SELECT * FROM usuario";
+            String sql = "SELECT * FROM usuario INNER JOIN userinfo on ID_USER=ID_USERINFO";
             PreparedStatement pst = connection.prepareStatement(sql);
 
             //PASSO 3
             ResultSet rs = pst.executeQuery();
-
+            
             //PASSO 4
             while (rs != null && rs.next()) {
-                long idUsuario = rs.getLong("id_user");
+                long idUserInfo = rs.getLong("id_userinfo");
+                String nomeCompleto = rs.getString("nome");
+                String email = rs.getString("email");
+                String endereco = rs.getString("endereco");
+                long telefone = rs.getInt("telefone");
+                String rg = rs.getString("RG");
+                long cpf = rs.getInt("cpf");
+                
+                UserInfo userInfo = new UserInfo();
+                
+                userInfo.setNome(nomeCompleto);
+                userInfo.setEmail(email);
+                userInfo.setEndereco(endereco);
+                userInfo.setTelefone(telefone);
+                userInfo.setCpf(cpf);
+                
+                long idUsuario = idUserInfo;
+                
                 String nome = rs.getString("username");
                 String senha = rs.getString("password");
-
+                
                 Usuario u = new Usuario();
-                u.setIdUser(idUsuario);
                 u.setName(nome);
                 u.setPassword(senha);
+                u.setIdUser(idUsuario);
 
                 usuarios.add(u);
             }
@@ -131,6 +137,7 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
             ResultSet rs = pst.executeQuery();
             while (rs != null && rs.next()) {
                 usuario = new Usuario(nomeUsuario, rs.getString("PASSWORD"));
+                usuario.setName(nomeUsuario);
                 usuario.setIdUser(rs.getLong("ID_USER"));
             }
             pst.close();
@@ -198,6 +205,11 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
         }
 
         return resposta;
+    }
+
+    @Override
+    public void create(Usuario e) {
+        
     }
 
 }

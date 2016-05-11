@@ -12,7 +12,7 @@ import java.util.List;
  * @author VictorOka
  */
 public interface GenericDAO<E> {
-    public long create(E e); //CREATE
+    public void create(E e); //CREATE
     public List<E> read();      //READ
     public E readById(long id);
     public boolean update(E e); //UPDATE

@@ -5,16 +5,18 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VictorOka
  */
-public class ItemCompra extends Produto {
+public class ItemCompra extends Produto implements Serializable {
     
     private double totalItem;
 
     public ItemCompra(double totalItem, int productCode, String productName, double price, int quantity) {
-        super(productCode, productName, price, quantity);
+        super();
         this.totalItem = calculateTotalItem(price, quantity);
     }
 

@@ -5,13 +5,14 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author VictorOka
  */
-public class Boleto extends Pagamento {
+public class Boleto extends Pagamento implements Serializable {
     
     private long numeroBoleto;
     private Date dataVencimento;

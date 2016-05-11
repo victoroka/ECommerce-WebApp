@@ -5,6 +5,7 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -12,15 +13,15 @@ import java.util.Date;
  *
  * @author Lucas
  */
-public class UserInfo {
+public class UserInfo implements Serializable {
     
     private long id_userinfo;
     private String nome;
     private String email;
     private String endereco;
-    private int telefone;
+    private long telefone;
     private String rg;
-    private int cpf;
+    private long cpf;
     private Date dataNasc;
 
     public UserInfo(String nome, String email, String endereco, int telefone, String rg, int cpf) {
@@ -68,11 +69,11 @@ public class UserInfo {
         this.endereco = endereco;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
@@ -84,11 +85,11 @@ public class UserInfo {
         this.rg = rg;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 

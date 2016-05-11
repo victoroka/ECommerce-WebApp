@@ -5,16 +5,46 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  *
  * @author VictorOka
  */
-public class Usuario {
+public class Usuario implements Serializable {
     
     private long idUser;
     private String name;
     private String login;
     private String password;
+    private int tipo;
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    public List<Comentario> getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(List<Comentario> comentario) {
+        this.comentario = comentario;
+    }
+    private UserInfo userInfo;
+    private List<Comentario> comentario;
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
 
     public Usuario(){
         // Default pro read()

@@ -13,7 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,31 +29,20 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         this.connection = SingletonConnection.getIntance().getConnection();
     }
 
-    @Override
-    public long create(UserInfo e) {
-      long resposta = -1;   
+    public void createUserInfo(UserInfo e, long generatedKey) {
         try {
             //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO userinfo(fullname, email, endereco, telefone, rg, cpf) VALUES (?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
-          
-            PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS); //retorna a chave 
+            String sql = "INSERT INTO userinfo(nome, email, endereco, telefone, rg, cpf) VALUES (?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getNome());
             pst.setString(2, e.getEmail());
             pst.setString(3, e.getEndereco()); 
-            pst.setInt(4, e.getTelefone()); 
+            pst.setLong(4, e.getTelefone()); 
             pst.setString(5, e.getRg()); 
-            pst.setInt(6, e.getCpf()); 
-            //data pst.setString(7, e.getPassword()); 
-            
+            pst.setLong(6, e.getCpf()); 
             
             //passo 3 - executar a consulta
-            int resultado = pst.executeUpdate(); //linhas afetadas
-            
-            //passo 4 - tratar os resultados
-            if(resultado > 0){
-                ResultSet rs2 = pst.getGeneratedKeys(); //buscar a chave do banco
-                if(rs2!=null && rs2.next()) resposta = rs2.getLong(1);
-            }
+            pst.execute();
             
             //passo 5 - fechar tudo (statement e conexao quando possivel)
             pst.close();
@@ -62,8 +50,6 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-             
-     return resposta;
     }
 
     @Override
@@ -80,13 +66,12 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
             // PASSO 4
             while (rs != null && rs.next()) {
                 long idUsuarioInfo = rs.getLong("id_userinfo");
-                String nomeCompleto = rs.getString("fullname");
+                String nomeCompleto = rs.getString("nome");
                 String email = rs.getString("email");
-                int telefone = rs.getInt("telefone");
+                long telefone = rs.getLong("telefone");
                 String endereco = rs.getString("endereco");
                 String rg = rs.getString("rg");
-                int cpf = rs.getInt("cpf");
-                Date dataNascimento = rs.getDate("datanasc");
+                long cpf = rs.getLong("cpf");
 
                 UserInfo userInfo = new UserInfo();
                 userInfo.setNome(nomeCompleto);
@@ -95,7 +80,6 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
                 userInfo.setEndereco(endereco);
                 userInfo.setRg(rg);
                 userInfo.setCpf(cpf);
-                userInfo.setDataNasc(dataNascimento);
 
                 usuariosInfo.add(userInfo);
             }
@@ -124,7 +108,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
             while (rs != null && rs.next()) {
                 usuarioInfo = new UserInfo();
                 usuarioInfo.setId_userinfo(id);
-                usuarioInfo.setNome(rs.getString("fullname"));
+                usuarioInfo.setNome(rs.getString("nome"));
                 usuarioInfo.setEmail(rs.getString("email"));
                 // usuarioInfo.getDataNascimento(rs.getDate("data_nascimento"));
             }
@@ -144,7 +128,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         
         try {
             //passo 2 
-            String sql = "UPDATE userinfo SET fullname=?, email=? WHERE id_userinfo=?";
+            String sql = "UPDATE userinfo SET nome=?, email=? WHERE id_userinfo=?";
             
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getNome());
@@ -194,6 +178,11 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         }
   
        return resposta;
+    }
+
+    @Override
+    public void create(UserInfo e) {
+        
     }
 
 

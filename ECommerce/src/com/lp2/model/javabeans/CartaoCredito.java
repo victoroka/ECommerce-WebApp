@@ -5,11 +5,13 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VictorOka
  */
-public class CartaoCredito extends Pagamento {
+public class CartaoCredito extends Pagamento implements Serializable {
     
     private long cardNumber;
     private String bandeira;

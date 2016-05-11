@@ -5,11 +5,13 @@
  */
 package com.lp2.model.javabeans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VictorOka
  */
-public class Pagamento {
+public class Pagamento implements Serializable {
     
     private double amount;
 
