@@ -9,6 +9,8 @@ and open the template in the editor.
 */
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 body {
+    background-image: url("../imgs/backgroundBlue.jpg");
+    background-repeat: repeat;
     margin: 10px;
     font-family: arial;
 }
@@ -47,11 +49,14 @@ nav form input[type="submit"]{
     background-color: darkcyan;
     color: white;
 }
+nav form input[type="submit"]:hover {
+    background-color: darkslategray;
+}
 .cadastrar{
     float: right;
     clear: both;
     margin-top: -20px;
-    margin-right: 110px;
+    margin-right: 80px;
     text-decoration: none;
 }
 fieldset{
@@ -85,4 +90,21 @@ fieldset{
 }
 .container{
     margin-top: 40px;
+}
+.botao {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 8px;
+    padding: 25px;
+    float: left;
+    clear: both;
+    margin-left: 25%;
+    margin-right: 70%;
+    margin-bottom: 1%;
+}
+.botao:hover{
+    background-color: darkslategray;
 }

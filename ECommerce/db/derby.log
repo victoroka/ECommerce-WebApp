@@ -1,7 +1,7 @@
-Tue May 10 21:35:53 BRT 2016 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1527
+Wed May 11 20:24:52 BRT 2016 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Tue May 10 21:37:12 BRT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0154-9d3d-c9d7-ffff9967977a 
+Wed May 11 20:25:13 BRT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0154-a223-23ec-ffff9967977a 
 on database directory /Users/VictorOka/GitHub/ProjetoLP/ECommerce/db/ECommerceDB with class loader sun.misc.Launcher$AppClassLoader@266474c2 
 Loaded from file:/Users/VictorOka/Documents/glassfish4/javadb/lib/derby.jar
 java.vendor=Oracle Corporation

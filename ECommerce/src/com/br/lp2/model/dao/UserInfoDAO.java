@@ -29,29 +29,6 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         this.connection = SingletonConnection.getIntance().getConnection();
     }
 
-    public void createUserInfo(UserInfo e, long generatedKey) {
-        try {
-            //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO userinfo(nome, email, endereco, telefone, rg, cpf) VALUES (?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
-            PreparedStatement pst = connection.prepareStatement(sql);
-            pst.setString(1, e.getNome());
-            pst.setString(2, e.getEmail());
-            pst.setString(3, e.getEndereco()); 
-            pst.setLong(4, e.getTelefone()); 
-            pst.setString(5, e.getRg()); 
-            pst.setLong(6, e.getCpf()); 
-            
-            //passo 3 - executar a consulta
-            pst.execute();
-            
-            //passo 5 - fechar tudo (statement e conexao quando possivel)
-            pst.close();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     @Override
     public List<UserInfo> read() {
         List<UserInfo> usuariosInfo = new ArrayList<>();
@@ -181,8 +158,35 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
     }
 
     @Override
-    public void create(UserInfo e) {
-        
+    public long create(UserInfo e) {
+        long resultado = -1;
+        try {
+            //passo 2 - preparar sql e statement
+            String sql = "INSERT INTO userinfo(id_userinfo, nome, email, endereco, telefone, rg, cpf) VALUES (?,?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setLong(1, e.getUsuario().getIdUser());
+            pst.setString(2, e.getNome());
+            pst.setString(3, e.getEmail());
+            pst.setString(4, e.getEndereco()); 
+            pst.setLong(5, e.getTelefone()); 
+            pst.setString(6, e.getRg()); 
+            pst.setLong(7, e.getCpf()); 
+            
+            int linhasAfetadas = pst.executeUpdate();
+            if (linhasAfetadas > 0) {
+                ResultSet rs = pst.getGeneratedKeys();
+                if (rs != null && rs.next()) {
+                    resultado = rs.getLong(1);
+                }
+            }
+            
+            //passo 5 - fechar tudo (statement e conexao quando possivel)
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultado;
     }
 
 

@@ -67,9 +67,11 @@ public class UsuarioAction extends ActionSupport {
             userInfo.setRg(rg);
             userInfo.setEndereco(endereco);
             userInfo.setTelefone(telefone);
-
-            long generatedKey = usuarioDAO.createUser(usuario);
-            userInfoDAO.createUserInfo(userInfo, generatedKey);
+            userInfo.setUsuario(usuario);
+            
+            usuario.setUserinfo(userInfo);
+            usuarioDAO.create(usuario);
+            
             this.getRequest().getSession().setAttribute("usuario", usuario);
             return "WEB-INF/jsp/usuario/home.jsp";
         } else {
@@ -77,4 +79,9 @@ public class UsuarioAction extends ActionSupport {
             return "WEB-INF/jsp/usuario/erro.jsp";
         }
     }
+    
+    public String home() {
+        return "WEB-INF/jsp/usuario/home.jsp";
+    }
+    
 }

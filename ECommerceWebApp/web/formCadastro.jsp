@@ -25,7 +25,7 @@
                     <input type="text" name="telefone" size="40" required="required" placeholder="Telefone"/><br>
                     <input type="text" name="rg" size="9" required="required" placeholder="R.G."/><br>
                     <input type="number" name="cpf" size="11" required="required" placeholder="CPF"/><br>
-                    <input type="number" name="tipo" size="1" required="required" placeholder="Tipo de Usuario"/><br>
+                    <input type="number" name="tipo" size="1" required="required" placeholder="Tipo de Usuario" value="0" readonly="readonly"/><br>
                     <input type="text" name="username" size="40" required="required" placeholder="Nome de Usuário"/><br>
                     <input type="password" name="senha" size="40" required="required" placeholder="Senha"/><br>
                     <input type="password" name="confirmarSenha" size="40" required="required" placeholder="Confirme sua senha"/><br>

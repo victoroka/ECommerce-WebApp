@@ -23,6 +23,7 @@ public class UserInfo implements Serializable {
     private String rg;
     private long cpf;
     private Date dataNasc;
+    private Usuario usuario;
 
     public UserInfo(String nome, String email, String endereco, int telefone, String rg, int cpf) {
         this.nome = nome;
@@ -99,6 +100,14 @@ public class UserInfo implements Serializable {
 
     public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

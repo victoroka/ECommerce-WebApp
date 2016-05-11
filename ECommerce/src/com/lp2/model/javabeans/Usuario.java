@@ -19,6 +19,8 @@ public class Usuario implements Serializable {
     private String login;
     private String password;
     private int tipo;
+    private UserInfo userinfo;
+    private List<Comentario> comentario;
 
     public int getTipo() {
         return tipo;
@@ -34,16 +36,6 @@ public class Usuario implements Serializable {
 
     public void setComentario(List<Comentario> comentario) {
         this.comentario = comentario;
-    }
-    private UserInfo userInfo;
-    private List<Comentario> comentario;
-
-    public UserInfo getUserInfo() {
-        return userInfo;
-    }
-
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
     }
 
     public Usuario(){
@@ -92,6 +84,14 @@ public class Usuario implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserInfo getUserinfo() {
+        return userinfo;
+    }
+
+    public void setUserinfo(UserInfo userinfo) {
+        this.userinfo = userinfo;
     }
 
     @Override

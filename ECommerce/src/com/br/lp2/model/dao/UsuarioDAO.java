@@ -29,26 +29,6 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
         this.connection = SingletonConnection.getIntance().getConnection();
     }
 
-    public long createUser(Usuario e) {
-        long generatedKey = 0;
-        try {
-            //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO usuario(username, password, tipo) VALUES (?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
-            PreparedStatement pst = connection.prepareStatement(sql);
-            pst.setString(1, e.getLogin()); //1o interrogaçao eh uma string e recebe o nome do usuario
-            pst.setString(2, e.getPassword()); //2a interrogaçao eh uma string e recebe a senha
-            pst.setInt(3, e.getTipo());
-            pst.execute(); //linhas afetadas
-            generatedKey = e.getIdUser()+1;
-            //passo 5 - fechar tudo (statement e conexao quando possivel)
-            pst.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return generatedKey;
-    }
-
     @Override
     public List<Usuario> read() {
         List<Usuario> usuarios = new ArrayList<>();
@@ -139,6 +119,7 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
                 usuario = new Usuario(nomeUsuario, rs.getString("PASSWORD"));
                 usuario.setName(nomeUsuario);
                 usuario.setIdUser(rs.getLong("ID_USER"));
+                usuario.setTipo(rs.getInt("tipo"));
             }
             pst.close();
         } catch (SQLException ex) {
@@ -208,8 +189,34 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
     }
 
     @Override
-    public void create(Usuario e) {
-        
+    public long create(Usuario e) {
+        long resultado = -1;
+        try {
+            //passo 2 - preparar sql e statement
+            String sql = "INSERT INTO usuario(username, password, tipo) VALUES (?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            pst.setString(1, e.getLogin()); //1o interrogaçao eh uma string e recebe o nome do usuario
+            pst.setString(2, e.getPassword()); //2a interrogaçao eh uma string e recebe a senha
+            pst.setInt(3, e.getTipo());
+            int linhasAfetadas = pst.executeUpdate(); //linhas afetadas
+            
+            if(linhasAfetadas > 0) {
+                ResultSet rs = pst.getGeneratedKeys();
+                if(rs!=null && rs.next()) {
+                    resultado = rs.getLong(1);
+                }
+            }
+            e.setIdUser(resultado);
+            UserInfoDAO userinfoDAO = new UserInfoDAO();
+            e.getUserinfo().getUsuario().setIdUser(resultado);
+            userinfoDAO.create(e.getUserinfo());
+            //passo 5 - fechar tudo (statement e conexao quando possivel)
+            pst.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultado;
     }
 
 }

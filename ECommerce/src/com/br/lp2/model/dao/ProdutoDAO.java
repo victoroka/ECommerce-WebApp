@@ -29,36 +29,29 @@ public class ProdutoDAO implements GenericDAO<Produto>{
     }
 
     @Override
-    public void create(Produto e) {
-       long resposta = -1;
+    public long create(Produto e) {
+       long resultado = -1;
         try {
             //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO produto(nome, preço, codigo, descricao, imagem) VALUES (?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            String sql = "INSERT INTO produto (nome, preço, codigo, descricao) VALUES (?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
 
-            PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS); //retorna a chave 
+            PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getProductName()); 
             pst.setDouble(2, e.getPrice()); 
             pst.setLong(3, e.getProductCode());
-            //pst.setString(4, e.ge)
+            pst.setString(4, e.getDescricao());
             
             
             //passo 3 - executar a consulta
-            int resultado = pst.executeUpdate(); //linhas afetadas
-
-            //passo 4 - tratar os resultados
-            if (resultado > 0) {
-                ResultSet rs2 = pst.getGeneratedKeys(); //buscar a chave do banco
-                if (rs2 != null && rs2.next()) {
-                    resposta = rs2.getLong(1);
-                }
-            }
-
+            pst.executeUpdate();
+            
             //passo 5 - fechar tudo (statement e conexao quando possivel)
             pst.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return resultado;
     }
 
     @Override
@@ -121,6 +114,16 @@ public class ProdutoDAO implements GenericDAO<Produto>{
         return resposta;
     }
 
+    public void deleteById(long id) {
+        String sql = "DELETE FROM produto WHERE id_produto = ?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setLong(1, id);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     @Override
     public List<Produto> read() {
         List<Produto> produtos = new ArrayList<>();
@@ -135,15 +138,20 @@ public class ProdutoDAO implements GenericDAO<Produto>{
             //PASSO 4
             while (rs != null && rs.next()) {
                 long id_produto = rs.getLong("id_produto");
-                String nome = rs.getString("username");
+                String nome = rs.getString("name");
                 Double preco = rs.getDouble("preco");
-                int codigo = rs.getInt("codigo");
+                long codigo = rs.getLong("codigo");
+                String descricao = rs.getString("descricao");
+                int quantidade = rs.getInt("quantidade");
+                
 
                 Produto p = new Produto();
                 p.setId_produto(id_produto);
                 p.setProductName(nome);
                 p.setPrice(preco);
                 p.setProductCode(codigo);
+                p.setDescricao(descricao);
+                p.setQuantidade(quantidade);
                 
                 produtos.add(p);
             }
@@ -173,10 +181,11 @@ public class ProdutoDAO implements GenericDAO<Produto>{
             while (rs != null && rs.next()) {
                 p = new Produto();
                 p.setId_produto(id);
-                p.setProductName(rs.getString("username"));
+                p.setProductName(rs.getString("nome"));
                 p.setPrice(rs.getDouble("preco"));
                 p.setProductCode(rs.getInt("codigo"));
-                
+                p.setDescricao(rs.getString("descricao"));
+                p.setQuantidade(rs.getInt("quantidade"));
             }
 
             // PASSO 5
@@ -186,4 +195,5 @@ public class ProdutoDAO implements GenericDAO<Produto>{
         }
         return p;
     }
+    
 }
