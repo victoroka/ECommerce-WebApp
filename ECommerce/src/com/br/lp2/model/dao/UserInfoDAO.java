@@ -51,6 +51,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
                 long cpf = rs.getLong("cpf");
 
                 UserInfo userInfo = new UserInfo();
+                userInfo.setId_userinfo(idUsuarioInfo);
                 userInfo.setNome(nomeCompleto);
                 userInfo.setEmail(email);
                 userInfo.setTelefone(telefone);
@@ -188,6 +189,15 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         }
         return resultado;
     }
-
-
+    
+    public void deleteById(Integer id) {
+        String sql = "DELETE FROM UserInfo WHERE id_UserInfo = ?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserInfoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

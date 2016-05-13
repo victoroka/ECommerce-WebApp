@@ -33,13 +33,15 @@ public class ProdutoDAO implements GenericDAO<Produto>{
        long resultado = -1;
         try {
             //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO produto (nome, preço, codigo, descricao) VALUES (?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            String sql = "INSERT INTO produto (nome, preco, codigo, descricao, imagem, quantidade) VALUES (?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
 
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getProductName()); 
             pst.setDouble(2, e.getPrice()); 
             pst.setLong(3, e.getProductCode());
             pst.setString(4, e.getDescricao());
+            pst.setString(5, "urlImagem");
+            pst.setInt(6, e.getQuantidade());
             
             
             //passo 3 - executar a consulta
@@ -60,12 +62,16 @@ public class ProdutoDAO implements GenericDAO<Produto>{
 
         try {
             //passo 2 
-            String sql = "UPDATE produto SET nome=?, preco=?, codigo=? WHERE id_produto=?";
+            String sql = "UPDATE produto SET nome=?, preco=?, codigo=?, descricao=?, imagem=?, quantidade=? WHERE id_produto=?";
 
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getProductName()); //nome do produto
             pst.setDouble(2, e.getPrice()); //preco do produto
             pst.setLong(3, e.getProductCode()); //codigo do produto
+            pst.setString(4, e.getDescricao());
+            pst.setString(5, e.getImagem());
+            pst.setInt(6, e.getQuantidade());
+            pst.setLong(7, e.getId_produto());
 
             //passo 3 
             int resultado = pst.executeUpdate();
@@ -138,10 +144,11 @@ public class ProdutoDAO implements GenericDAO<Produto>{
             //PASSO 4
             while (rs != null && rs.next()) {
                 long id_produto = rs.getLong("id_produto");
-                String nome = rs.getString("name");
+                String nome = rs.getString("nome");
                 Double preco = rs.getDouble("preco");
                 long codigo = rs.getLong("codigo");
                 String descricao = rs.getString("descricao");
+                String imagem = rs.getString("imagem");
                 int quantidade = rs.getInt("quantidade");
                 
 
@@ -151,6 +158,7 @@ public class ProdutoDAO implements GenericDAO<Produto>{
                 p.setPrice(preco);
                 p.setProductCode(codigo);
                 p.setDescricao(descricao);
+                p.setImagem(imagem);
                 p.setQuantidade(quantidade);
                 
                 produtos.add(p);

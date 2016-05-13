@@ -21,5 +21,6 @@
             <h1>ECommerce HOME</h1>
             <h2>Bem vindo ${usuario.name}!</h2>
         </section>
+        <%@include file="../../../Footer.jspf"%>
     </body>
 </html>

@@ -33,5 +33,6 @@
                 </form>
             </fieldset>
         </section>
+        <%@include file="Footer.jspf" %>
     </body>
 </html>

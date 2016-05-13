@@ -27,5 +27,6 @@
                 <a href="${pageContext.request.contextPath}/usuario!listar.action" class="botao">Listar&nbsp;Usu&aacute;rios</a>
             </fieldset>
         </section>
+        <%@include file="Footer.jspf" %>
     </body>
 </html>

@@ -46,9 +46,9 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
                 String nomeCompleto = rs.getString("nome");
                 String email = rs.getString("email");
                 String endereco = rs.getString("endereco");
-                long telefone = rs.getInt("telefone");
+                long telefone = rs.getLong("telefone");
                 String rg = rs.getString("RG");
-                long cpf = rs.getInt("cpf");
+                long cpf = rs.getLong("cpf");
                 
                 UserInfo userInfo = new UserInfo();
                 

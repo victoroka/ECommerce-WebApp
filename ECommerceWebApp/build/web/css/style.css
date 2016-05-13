@@ -8,17 +8,22 @@ and open the template in the editor.
     Author     : VictorOka
 */
 @import url(http://fonts.googleapis.com/css?family=Raleway);
-body {
+html{
     background-image: url("../imgs/backgroundBlue.jpg");
     background-repeat: repeat;
-    margin: 10px;
+    margin: 5px;
     font-family: arial;
+    width:100%; 
+    height:100%; 
 }
-section{
-    margin: 25px;
+body {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
 }
+
 nav {
-    margin-top: 35px;
+    margin-top: 15px;
     padding: 30px;
     text-align: center;
     font-family: Raleway;
@@ -60,17 +65,19 @@ nav form input[type="submit"]:hover {
     text-decoration: none;
 }
 fieldset{
-    margin-left: 35%;
+    margin-left: 40%;
     margin-right: 35%;
 }
+
 .formCadastro{
-    margin-left: 5%;
+    margin-left: 10%;
     margin-right: 20%;
     margin-top: 5%;
 }
 .formCadastro input{
     border-radius: 8px;
     padding: 10px;
+    margin-left: -25px;
 }
 #nav-3 {
     background: #EEA200;
@@ -89,7 +96,8 @@ fieldset{
     padding: 15px 10px;
 }
 .container{
-    margin-top: 40px;
+    margin-bottom: 150px;
+    width: 100%;
 }
 .botao {
     display: block;
@@ -101,10 +109,44 @@ fieldset{
     padding: 25px;
     float: left;
     clear: both;
-    margin-left: 25%;
+    margin-left: 1%;
     margin-right: 70%;
     margin-bottom: 1%;
+    align-items: center;
 }
 .botao:hover{
     background-color: darkslategray;
+}
+.botaoListar {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: darkcyan;
+    color: black;
+    border-radius: 8px;
+    padding: 10px;
+    float: left;
+    clear: both;
+    margin-left: 1%;
+    margin-right: 70%;
+    margin-bottom: 1%;
+    align-items: center;
+}
+.botaoListar:hover{
+    color: white;
+    background-color: darkslategray;
+}
+header{
+    width: 98%;
+    margin-right: 10px;
+    text-align: center;
+    padding: 10px;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    background-color: lightcyan;
 }

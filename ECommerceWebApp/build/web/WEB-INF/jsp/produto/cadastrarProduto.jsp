@@ -22,10 +22,13 @@
                     <input type="text" name="nomeProduto" size="40" required="required" placeholder="Nome do Produto" /><br>
                     <input type="text" name="preco" size="40" required="required" placeholder="Preço"/><br>
                     <input type="number" name="codigo" size="40" required="required" placeholder="Código"/><br>
-                    <textarea name="descricao" cols="45" rows="6" wrap="OFF" required="required" placeholder="Descrição"></textarea><br>
+                    <!--<textarea name="descricao" cols="45" rows="6" wrap="OFF" required="required" placeholder="Descrição"></textarea><br>-->
+                    <input type="text" name="descricao" size="40" required="required" placeholder="Descrição"/><br>
+                    <input type="number" name="quantidade" size="10" required="required" placeholder="Quantidade"/><br>
                     <input type="submit" value="Cadastrar" />
                 </form>
             </fieldset>
         </section>
+        <%@include file="../../../Footer.jspf"%>
     </body>
 </html>

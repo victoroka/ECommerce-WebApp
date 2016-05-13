@@ -9,6 +9,8 @@ import com.br.lp2.model.dao.UserInfoDAO;
 import com.br.lp2.model.dao.UsuarioDAO;
 import com.lp2.model.javabeans.UserInfo;
 import com.lp2.model.javabeans.Usuario;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -68,10 +70,10 @@ public class UsuarioAction extends ActionSupport {
             userInfo.setEndereco(endereco);
             userInfo.setTelefone(telefone);
             userInfo.setUsuario(usuario);
-            
+
             usuario.setUserinfo(userInfo);
             usuarioDAO.create(usuario);
-            
+
             this.getRequest().getSession().setAttribute("usuario", usuario);
             return "WEB-INF/jsp/usuario/home.jsp";
         } else {
@@ -79,9 +81,39 @@ public class UsuarioAction extends ActionSupport {
             return "WEB-INF/jsp/usuario/erro.jsp";
         }
     }
-    
+
     public String home() {
         return "WEB-INF/jsp/usuario/home.jsp";
     }
+
+    public String listar() {
+        try {
+            this.getRequest().setAttribute("usuarios", new UsuarioDAO().read());
+            this.getRequest().setAttribute("userinfos", new UserInfoDAO().read());
+        } catch (Exception e) {
+            Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return "WEB-INF/jsp/usuario/listar.jsp";
+    }
     
+    public String remover() {
+        try {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId_userinfo(Long.parseLong(this.getRequest().getParameter("code")));
+            UserInfoDAO userInfoDAO = new UserInfoDAO();
+            this.getRequest().setAttribute("userinfo", userInfoDAO.readById(userInfo.getId_userinfo()));
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "WEB-INF/jsp/usuario/remover.jsp";
+    }
+    
+    public String confirmarRemocao() {
+        try {
+            new UserInfoDAO().deleteById(Integer.parseInt(this.getRequest().getParameter("codigo")));
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return this.listar();
+    }
 }

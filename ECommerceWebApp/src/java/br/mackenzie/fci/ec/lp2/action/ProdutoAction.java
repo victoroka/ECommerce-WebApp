@@ -26,6 +26,7 @@ public class ProdutoAction extends ActionSupport {
         long codigo = Long.parseLong(this.getRequest().getParameter("codigo"));
         String descricao = this.getRequest().getParameter("descricao");
         // String imagem = this.getRequest().getParameter("imagem");
+        int quantidade = Integer.parseInt(this.getRequest().getParameter("quantidade"));
         
         Produto produto = new Produto();
         produto.setProductName(nomeProduto);
@@ -33,6 +34,7 @@ public class ProdutoAction extends ActionSupport {
         produto.setProductCode(codigo);
         produto.setDescricao(descricao);
         // produto.setImagem(imagem);
+        produto.setQuantidade(quantidade);
         
         try {
             new ProdutoDAO().create(produto);
@@ -55,7 +57,7 @@ public class ProdutoAction extends ActionSupport {
     public String alterar() {
         try {
             Produto produto = new Produto();
-            produto.setId_produto(Long.parseLong(this.getRequest().getParameter("id_produto")));
+            produto.setId_produto(Long.parseLong(this.getRequest().getParameter("code")));
             ProdutoDAO produtoDAO = new ProdutoDAO();
             this.getRequest().setAttribute("produto", produtoDAO.readById(produto.getId_produto()));
         } catch (Exception ex) {
@@ -67,8 +69,13 @@ public class ProdutoAction extends ActionSupport {
     public String confirmarAlteracao() {
         try {
             Produto produto = new Produto();
-            produto.setId_produto(Long.parseLong(this.getRequest().getParameter("id_produto")));
-            produto.setProductName(this.getRequest().getParameter("name"));
+            produto.setId_produto(Long.parseLong(this.getRequest().getParameter("codigo")));
+            produto.setProductName(this.getRequest().getParameter("nome"));
+            produto.setProductCode(Long.parseLong(this.getRequest().getParameter("codigoProduto")));
+            produto.setPrice(Double.parseDouble(this.getRequest().getParameter("preco")));
+            produto.setDescricao(this.getRequest().getParameter("descricao"));
+            produto.setImagem("urlImagem");
+            produto.setQuantidade(Integer.parseInt(this.getRequest().getParameter("quantidade")));
             ProdutoDAO produtoDAO = new ProdutoDAO();
             produtoDAO.update(produto);
         } catch (Exception ex) {
@@ -80,7 +87,7 @@ public class ProdutoAction extends ActionSupport {
     public String remover() {
         try {
             Produto produto = new Produto();
-            produto.setId_produto(Long.parseLong(this.getRequest().getParameter("id_produto")));
+            produto.setId_produto(Long.parseLong(this.getRequest().getParameter("code")));
             ProdutoDAO produtoDAO = new ProdutoDAO();
             this.getRequest().setAttribute("produto", produtoDAO.readById(produto.getId_produto()));
         } catch (Exception ex) {
@@ -91,7 +98,7 @@ public class ProdutoAction extends ActionSupport {
     
     public String confirmarRemocao() {
         try {
-            new ProdutoDAO().deleteById(Integer.parseInt(this.getRequest().getParameter("id_produto")));
+            new ProdutoDAO().deleteById(Integer.parseInt(this.getRequest().getParameter("code")));
         } catch (Exception ex) {
             Logger.getLogger(ProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
         }

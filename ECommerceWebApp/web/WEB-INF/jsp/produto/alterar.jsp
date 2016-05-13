@@ -8,10 +8,36 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Alterar&nbsp;Produto</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../../../TopMenu.jspf" %>
+        <h1>Produto : alterar</h1>
+        <p>Tem certeza que deseja remover este cargo?</p>
+        <form method="POST" action="${pageContext.request.contextPath}/produto!confirmarAlteracao.action">
+            <label for="codigo">C&oacute;digo:&nbsp;</label>
+            <input type="text" name="codigo" size="40" readonly="readonly" value="${produto.id_produto}" />
+            <br>
+            <label for="nome">Nome:&nbsp;</label>
+            <input type="text" name="nome" size="40" value="${produto.productName}"/>
+            <br>
+            <label for="codigoProduto">C&oacute;digo:&nbsp;do&nbsp;Produto:&nbsp;</label>
+            <input type="text" name="codigoProduto" size="40" readonly="readonly" value="${produto.productCode}"/>
+            <br>
+            <label for="preco">Preco:&nbsp;</label>
+            <input type="text" name="preco" size="40" value="${produto.price}"/>
+            <br>
+            <label for="quantidade">Quantidade:&nbsp;</label>
+            <input type="text" name="quantidade" size="40" value="${produto.quantidade}"/>
+            <br>
+            <label for="descricao">Descricao:&nbsp;</label>
+            <input type="text" name="descricao" size="40" value="${produto.descricao}"/>
+            <br>
+            <input type="submit" value="Alterar" />
+        </form>
+        <%@include file="../../../Footer.jspf"%>
     </body>
 </html>
+
