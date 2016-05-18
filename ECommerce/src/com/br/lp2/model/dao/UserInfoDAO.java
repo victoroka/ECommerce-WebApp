@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,6 +50,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
                 String endereco = rs.getString("endereco");
                 String rg = rs.getString("rg");
                 long cpf = rs.getLong("cpf");
+                Date dataNasc = rs.getDate("dataNasc");
 
                 UserInfo userInfo = new UserInfo();
                 userInfo.setId_userinfo(idUsuarioInfo);
@@ -58,6 +60,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
                 userInfo.setEndereco(endereco);
                 userInfo.setRg(rg);
                 userInfo.setCpf(cpf);
+                userInfo.setDataNasc(dataNasc);
 
                 usuariosInfo.add(userInfo);
             }
@@ -163,7 +166,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
         long resultado = -1;
         try {
             //passo 2 - preparar sql e statement
-            String sql = "INSERT INTO userinfo(id_userinfo, nome, email, endereco, telefone, rg, cpf) VALUES (?,?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
+            String sql = "INSERT INTO userinfo(id_userinfo, nome, email, endereco, telefone, rg, cpf, dataNasc) VALUES (?,?,?,?,?,?,?,?)"; // ? = prepared statement, onde vale um valor, mas não se sabe qual
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setLong(1, e.getUsuario().getIdUser());
             pst.setString(2, e.getNome());
@@ -172,6 +175,7 @@ public class UserInfoDAO implements GenericDAO<UserInfo>{
             pst.setLong(5, e.getTelefone()); 
             pst.setString(6, e.getRg()); 
             pst.setLong(7, e.getCpf()); 
+            pst.setDate(8, new java.sql.Date(e.getDataNasc().getTime()));
             
             int linhasAfetadas = pst.executeUpdate();
             if (linhasAfetadas > 0) {

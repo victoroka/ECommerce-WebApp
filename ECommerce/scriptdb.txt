@@ -15,7 +15,8 @@ CREATE TABLE userinfo(
 	endereco VARCHAR(150) NOT NULL,
 	telefone BIGINT NOT NULL,
 	rg BIGINT NOT NULL,
-	cpf BIGINT NOT NULL
+	cpf BIGINT NOT NULL,
+	dataNasc DATE NOT NULL
 );
 
 	ALTER TABLE userinfo

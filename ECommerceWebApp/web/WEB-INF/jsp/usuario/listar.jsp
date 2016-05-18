@@ -15,27 +15,29 @@
     <body>
         <%@include file="../../../TopMenu.jspf" %>
         <h1>Usuarios Cadastrados</h1>
-        <table style="border: 1px solid black; background-color: cadetblue; color: black;">
-            <tr style="border: 1px solid black; text-align: center;">
+        <table class="tabela">
+            <tr class="celula">
                 <th>ID</th>
                 <th>NOME</th>
                 <th>EMAIL</th>
                 <th>ENDERECO</th>
                 <th>TELEFONE</th>
+                <th>DATA</th>
                 <th>RG</th>
                 <th>CPF</th>
                 <th>OPERACOES</th>
             </tr>
             <c:forEach var="userinfo" items="${userinfos}">
-                <tr style="border: 1px solid black; text-align: center;">
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.id_userinfo}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.nome}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.email}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.endereco}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.telefone}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.rg}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><c:out value="${userinfo.cpf}"/></td>
-                    <td style="border: 1px solid black; text-align: center;"><a href="${pageContext.request.contextPath}/usuario!remover.action?code=${userinfo.id_userinfo}" class="botaoListar"><c:out value="remover"/></a></td>
+                <tr class="celula">
+                    <td class="celula"><c:out value="${userinfo.id_userinfo}"/></td>
+                    <td class="celula"><c:out value="${userinfo.nome}"/></td>
+                    <td class="celula"><c:out value="${userinfo.email}"/></td>
+                    <td class="celula"><c:out value="${userinfo.endereco}"/></td>
+                    <td class="celula"><c:out value="${userinfo.telefone}"/></td>
+                    <td class="celula"><c:out value="${userinfo.getDataNascimento()}"/></td>
+                    <td class="celula"><c:out value="${userinfo.rg}"/></td>
+                    <td class="celula"><c:out value="${userinfo.cpf}"/></td>
+                    <td class="celula"><a href="${pageContext.request.contextPath}/usuario!remover.action?code=${userinfo.id_userinfo}" class="botaoListar"><c:out value="remover"/></a></td>
                 </tr>
             </c:forEach>
         </table>

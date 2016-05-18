@@ -9,6 +9,9 @@ import com.br.lp2.model.dao.UserInfoDAO;
 import com.br.lp2.model.dao.UsuarioDAO;
 import com.lp2.model.javabeans.UserInfo;
 import com.lp2.model.javabeans.Usuario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,12 +52,20 @@ public class UsuarioAction extends ActionSupport {
         String rg = this.getRequest().getParameter("rg");
         long cpf = Long.parseLong(this.getRequest().getParameter("cpf"));
         int tipo = Integer.parseInt(this.getRequest().getParameter("tipo"));
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date dataNasc = null;
+        try {
+            dataNasc = sdf.parse(this.getRequest().getParameter("dataNasc"));
+        } catch (ParseException ex) {
+            Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         String username = this.getRequest().getParameter("username");
         String senha = this.getRequest().getParameter("senha");
         String confirmarSenha = this.getRequest().getParameter("confirmarSenha");
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        UserInfoDAO userInfoDAO = new UserInfoDAO();
 
         if (senha.equals(confirmarSenha)) {
             Usuario usuario = new Usuario();
@@ -70,6 +81,7 @@ public class UsuarioAction extends ActionSupport {
             userInfo.setEndereco(endereco);
             userInfo.setTelefone(telefone);
             userInfo.setUsuario(usuario);
+            userInfo.setDataNasc(dataNasc);
 
             usuario.setUserinfo(userInfo);
             usuarioDAO.create(usuario);
@@ -95,7 +107,7 @@ public class UsuarioAction extends ActionSupport {
         }
         return "WEB-INF/jsp/usuario/listar.jsp";
     }
-    
+
     public String remover() {
         try {
             UserInfo userInfo = new UserInfo();
@@ -107,7 +119,7 @@ public class UsuarioAction extends ActionSupport {
         }
         return "WEB-INF/jsp/usuario/remover.jsp";
     }
-    
+
     public String confirmarRemocao() {
         try {
             new UserInfoDAO().deleteById(Integer.parseInt(this.getRequest().getParameter("codigo")));

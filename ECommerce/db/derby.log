@@ -1,7 +1,7 @@
-Fri May 13 10:37:46 BRT 2016 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1527
+Tue May 17 09:15:41 BRT 2016 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Fri May 13 10:38:14 BRT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0154-aa56-5831-ffff9967977a 
+Tue May 17 09:16:05 BRT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0154-bea4-a4d1-ffff9967977a 
 on database directory /Users/VictorOka/GitHub/ProjetoLP/ECommerce/db/ECommerceDB with class loader sun.misc.Launcher$AppClassLoader@266474c2 
 Loaded from file:/Users/VictorOka/Documents/glassfish4/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,9 +12,111 @@ os.arch=x86_64
 os.version=10.11.4
 derby.system.home=/Users/VictorOka/GitHub/ProjetoLP/ECommerce/db
 Database Class Loader started - derby.database.classpath=''
+Tue May 17 10:02:55 BRT 2016 Thread[DRDAConnThread_4,5,main] Cleanup action starting
+java.sql.SQLException: Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+Caused by: java.sql.SQLException: Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 19 more
+============= begin nested exception, level (1) ===========
+java.sql.SQLException: Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+============= end nested exception, level (1) ===========
+Cleanup action completed
+Tue May 17 10:02:55 BRT 2016 Thread[DRDAConnThread_4,5,main] (DATABASE = ECommerceDB&useEncoding=true&characterEncoding=UTF-8), (DRDAID = {3}), Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+Tue May 17 10:08:19 BRT 2016 Thread[DRDAConnThread_4,5,main] Cleanup action starting
+java.sql.SQLException: Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+Caused by: java.sql.SQLException: Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 19 more
+============= begin nested exception, level (1) ===========
+java.sql.SQLException: Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
+	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+============= end nested exception, level (1) ===========
+Cleanup action completed
+Tue May 17 10:08:19 BRT 2016 Thread[DRDAConnThread_4,5,main] (DATABASE = ECommerceDB&useEncoding=true&characterEncoding=UTF-8), (DRDAID = {4}), Database 'ECommerceDB&useEncoding=true&characterEncoding=UTF-8' not found.
 ----------------------------------------------------------------
-Fri May 13 12:04:31 BRT 2016: Shutting down Derby engine
+Tue May 17 11:57:57 BRT 2016: Shutting down Derby engine
 ----------------------------------------------------------------
-Fri May 13 12:04:31 BRT 2016:
-Shutting down instance a816c00e-0154-aa56-5831-ffff9967977a on database directory /Users/VictorOka/GitHub/ProjetoLP/ECommerce/db/ECommerceDB with class loader sun.misc.Launcher$AppClassLoader@266474c2 
+Tue May 17 11:57:57 BRT 2016:
+Shutting down instance a816c00e-0154-bea4-a4d1-ffff9967977a on database directory /Users/VictorOka/GitHub/ProjetoLP/ECommerce/db/ECommerceDB with class loader sun.misc.Launcher$AppClassLoader@266474c2 
 ----------------------------------------------------------------

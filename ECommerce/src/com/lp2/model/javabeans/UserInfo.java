@@ -6,6 +6,7 @@
 package com.lp2.model.javabeans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -97,6 +98,12 @@ public class UserInfo implements Serializable {
     public Date getDataNasc() {
         return dataNasc;
     }
+    
+    public String getDataNascimento() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dataNascimento = sdf.format(dataNasc);
+        return dataNascimento ;
+    }
 
     public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
@@ -108,8 +115,8 @@ public class UserInfo implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
-
+    } 
+    
     @Override
     public String toString() {
         return "Userinfo{" + "id_userinfo=" + id_userinfo + ", nome=" + nome + ", email=" + email + ", endereco=" + endereco + ", telefone=" + telefone + ", rg=" + rg + ", cpf=" + cpf + '}';
