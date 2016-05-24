@@ -128,4 +128,14 @@ public class UsuarioAction extends ActionSupport {
         }
         return this.listar();
     }
+    
+    public String comprar() {
+        Usuario usuario = (Usuario)(this.getRequest().getSession().getAttribute("usuario"));
+        if (usuario == null) {
+            this.getRequest().getSession().setAttribute("erromsg", "Favor realizar o login!");
+            return "WEB-INF/jsp/usuario/erro.jsp";
+        } else {
+            return "WEB-INF/jsp/usuario/produto.jsp";
+        }
+    }
 }

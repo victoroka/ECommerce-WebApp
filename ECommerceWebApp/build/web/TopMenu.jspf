@@ -8,7 +8,7 @@
                 <a class="link-3" href="index.jsp">Home</a>
                 <a class="link-3" href="#">Shop</a>
                 <a class="link-3" href="#">Contact us</a>
-                <a class="link-3" href="#">About</a>
+                <a class="link-3" href="About.jsp">About</a>
                 <form action="${pageContext.request.contextPath}/usuario!login.action" method="POST">
                     <input type="text" name="username" required="required" placeholder="Usuário" />
                     <input type="password" name="password" required="required" placeholder="Senha" />

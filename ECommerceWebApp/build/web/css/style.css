@@ -165,3 +165,18 @@ footer{
     background-color: cadetblue; 
     color: black;
 }
+.lucas {
+    float: left;
+    background-color: lightsalmon;
+    opacity: 50%;
+    padding: 70px 30px;
+    margin-right: 500px;
+    clear: right;
+}
+.victor {
+    float: right;
+    background-color: lightsalmon;
+    opacity: 50%;
+    padding:70px 10px;
+    margin-left: 500px;
+}
