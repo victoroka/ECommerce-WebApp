@@ -98,6 +98,8 @@ fieldset{
 .container{
     margin-bottom: 150px;
     width: 100%;
+    display:table;
+    background-color: gray;
 }
 .botao {
     display: block;
@@ -165,18 +167,31 @@ footer{
     background-color: cadetblue; 
     color: black;
 }
-.lucas {
-    float: left;
-    background-color: lightsalmon;
-    opacity: 50%;
-    padding: 70px 30px;
-    margin-right: 500px;
-    clear: right;
+#containerdiv{
+    width: 100%;
+    margin: 0 auto;
 }
-.victor {
+.box{
+    width: 49%;
+    height: 500px;
+}
+.right{
     float: right;
-    background-color: lightsalmon;
-    opacity: 50%;
-    padding:70px 10px;
-    margin-left: 500px;
+    background-color: graytext;
+}
+.left{
+    float: left;
+    background-color: greenyellow;
+    opacity: 2%;
+}
+.foto{
+    width: 130px;
+    height: 130px;
+    margin-left: 37%;
+}
+.textofig{
+    margin-left: 40%;
+}
+.pabout{
+    padding: 5px 70px 5px 70px;
 }

@@ -17,6 +17,10 @@
         <section class="container">
             <h1>ECommerce</h1>
         </section>
+        
+        <section>
+           <p> Produtos </p>
+        </section>
         <%@include file="Footer.jspf" %>
     </body>
 </html>
