@@ -33,9 +33,9 @@
                     <img src="imgs/victorimg.jpg" alt="Imagem do DevVictor" class="foto"/>
                     <figcaption class="textofig">Victor&nbsp;Oka</figcaption>
                 </figure>
-                <p class="pabout">Também conhecido como best jungle do bronze 3 do League of Legends.</p>
-                <p class="pabout">ASFASVNXCVN GHJ89ASDHFASDF VASMASDFMWL4MFLKSDMVM WIJ2Q8HGODIAFNVALSVMSALKGN3NSALKD QWFJ2IO JSAD</p>
-                <p class="pabout">ASFASVNXCVN GHJ89ASDHFASDF VASMASDFMWL4MFLKSDMVM WIJ2Q8HGODIAFNVALSVMSALKGN3NSALKD QWFJ2IO JSAD</p>
+                <p class="pabout">Victor Hideo Oka tem 19 anos, gosta de rock classico e alternativo. Por este fato, um de seus hobbies é tocar guitarra.</p>
+                <p class="pabout">Nas horas vagas também gosta de jogar jogos eletronicos no computador, como League of Legends e Life is Strange.</p>
+                <p class="pabout">Sempre foi um entusiasta de tecnologia e gosta de ficar sempre atualizado em relação ao assunto.</p>
             </article>
         </section>
          </div>

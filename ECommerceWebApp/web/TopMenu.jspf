@@ -20,7 +20,7 @@
                 <a class="link-3" href="${pageContext.request.contextPath}/usuario!home.action">Home</a>
                 <a class="link-3" href="${pageContext.request.contextPath}/produto!comprar.action">Shop</a>
                 <a class="link-3" href="#">Contact us</a>
-                <a class="link-3" href="#">About</a>
+                <a class="link-3" href="About.jsp">About</a>
                 <c:if test="${usuario.tipo>0}">
                     <a class="link-3" href="painelDeControle.jsp">Painel&nbsp;de&nbsp;Controle</a>
                 </c:if>

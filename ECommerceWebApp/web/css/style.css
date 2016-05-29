@@ -99,7 +99,8 @@ fieldset{
     margin-bottom: 150px;
     width: 100%;
     display:table;
-    background-color: gray;
+    background-color: lightcyan;
+    border-radius: 15px;
 }
 .botao {
     display: block;
@@ -177,12 +178,13 @@ footer{
 }
 .right{
     float: right;
-    background-color: graytext;
+    background-color: lightcyan;
+    border-radius: 15px;
 }
 .left{
     float: left;
-    background-color: greenyellow;
-    opacity: 2%;
+    background-color: lightcyan;
+    border-radius: 15px;
 }
 .foto{
     width: 130px;
