@@ -26,7 +26,7 @@
                 <th>OPÇÕES</th>
             </tr>
             <c:forEach var="produto" items="${produtos}">
-                <tr class="celula">produtos
+                <tr class="celula">
                     <td class="celula"><c:out value="${produto.id_produto}"/></td>
                     <td class="celula"><c:out value="${produto.productName}"/></td>
                     <td class="celula"><c:out value="${produto.price}"/></td>

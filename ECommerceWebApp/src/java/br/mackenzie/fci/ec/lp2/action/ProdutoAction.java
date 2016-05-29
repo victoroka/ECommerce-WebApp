@@ -104,4 +104,13 @@ public class ProdutoAction extends ActionSupport {
         }
         return this.listar();
     }
+    
+    public String comprar() {
+        try {
+        this.getRequest().setAttribute("produtos", new ProdutoDAO().read());
+        } catch (Exception e) {
+            Logger.getLogger(ProdutoAction.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return "shop.jsp";
+    }
 }

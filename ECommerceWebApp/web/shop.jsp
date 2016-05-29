@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 03/05/2016, 18:21:53
+    Document   : shop
+    Created on : 29/05/2016, 19:11:51
     Author     : Victor
 --%>
 
@@ -15,11 +15,19 @@
     <body>
         <%@include file="TopMenu.jspf" %>
         <section class="container">
-            <h1>ECommerce</h1>
+            <h1>Shop</h1>
         </section>
-        
+
         <section>
-           <p>Index</p>
+            <p>Produtos</p>
+            <table>
+                <c:forEach var="produto" items="${produtos}">
+                    <tr class="celula">
+                        <td class="celula"><c:out value="${produto.productName}"/></td>
+                        <td class="celula"><c:out value="${produto.price}"/></td>
+                    </tr>
+                </c:forEach>
+            </table>
         </section>
         <%@include file="Footer.jspf" %>
     </body>

@@ -4,7 +4,7 @@
 <header>
     <nav id="nav-3">
         <a class="link-3" href="index.jsp">Home</a>
-        <a class="link-3" href="#">Shop</a>
+        <a class="link-3" href="${pageContext.request.contextPath}/produto!comprar.action">Shop</a>
         <a class="link-3" href="#">Contact us</a>
         <a class="link-3" href="#">About</a>
     </nav>

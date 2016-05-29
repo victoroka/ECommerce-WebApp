@@ -19,7 +19,7 @@
         </section>
         
         <section>
-           <p> Produtos </p>
+           <p>Index</p>
         </section>
         <%@include file="Footer.jspf" %>
     </body>

@@ -1,16 +1,16 @@
-Sun May 29 18:04:39 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Sun May 29 19:07:39 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conex�es na porta 1527 em {3}
 ----------------------------------------------------------------
-Sun May 29 18:06:47 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-fe55-3a7b-ffff80c9ef88
-no diretório de banco de dados /Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db/ECommerceDB 
+Sun May 29 19:08:28 BRT 2016:
+ Inicializando o Derby vers�o The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): inst�ncia a816c00e-0154-fe8e-e6a4-ffff81b9dcc8
+no diret�rio de banco de dados C:\Users\Victor\Documents\GitHub\ProjetoLP\ECommerce\db\ECommerceDB 
 
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_31-b13
-user.dir=/Applications/NetBeans/glassfish-4.1/javadb
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.11.1
-derby.system.home=/Users/Lucas/Documents/Ciência da Computação/3o Semestre/LP 2/Cacique/ProjetoLP/ECommerce/db
+java.runtime.version=1.8.0_73-b02
+user.dir=C:\Users\Victor\Documents\glassfish4\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\Victor\Documents\GitHub\ProjetoLP\ECommerce\db
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun May 29 19:01:37 BRT 2016: Shutting down Derby engine
+Sun May 29 19:19:13 BRT 2016: Shutting down Derby engine

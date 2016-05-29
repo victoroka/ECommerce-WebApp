@@ -6,7 +6,7 @@
         <c:choose> 
             <c:when test="${usuario==null}">
                 <a class="link-3" href="index.jsp">Home</a>
-                <a class="link-3" href="#">Shop</a>
+                <a class="link-3" href="${pageContext.request.contextPath}/produto!comprar.action">Shop</a>
                 <a class="link-3" href="#">Contact us</a>
                 <a class="link-3" href="About.jsp">About</a>
                 <form action="${pageContext.request.contextPath}/usuario!login.action" method="POST">
@@ -18,7 +18,7 @@
             </c:when>
             <c:otherwise>
                 <a class="link-3" href="${pageContext.request.contextPath}/usuario!home.action">Home</a>
-                <a class="link-3" href="#">Shop</a>
+                <a class="link-3" href="${pageContext.request.contextPath}/produto!comprar.action">Shop</a>
                 <a class="link-3" href="#">Contact us</a>
                 <a class="link-3" href="#">About</a>
                 <c:if test="${usuario.tipo>0}">
