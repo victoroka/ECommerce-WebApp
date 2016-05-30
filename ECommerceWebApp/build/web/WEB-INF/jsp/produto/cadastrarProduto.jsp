@@ -15,8 +15,8 @@
     <body>
         <%@include file="../../../TopMenu.jspf" %>
         <section class="container">
-            <h1>Cadastro&nbsp;de&nbsp;Produto</h1>
-            <fieldset>
+            <h1 class="centro">Cadastro&nbsp;de&nbsp;Produto</h1>
+            <fieldset class="fieldset1">
                 <legend>Preencha&nbsp;o&nbsp;formul&aacute;rio abaixo:</legend>
                 <form method="POST" action="${pageContext.request.contextPath}/produto!cadastrar.action" class="formCadastro">
                     <input type="text" name="nomeProduto" size="40" required="required" placeholder="Nome do Produto" /><br>
@@ -28,6 +28,8 @@
                     <input type="submit" value="Cadastrar" />
                 </form>
             </fieldset>
+            <br>
+            <a href="painelDeControle.jsp" class="botaoListar"><c:out value="Voltar"/></a>
         </section>
         <%@include file="../../../Footer.jspf"%>
     </body>

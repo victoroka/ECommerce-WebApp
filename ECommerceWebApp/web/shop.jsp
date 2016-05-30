@@ -18,20 +18,16 @@
         <section class="container">
             <h1>Shop</h1>
         </section>
-
         <section>
             <p>Produtos</p>
-          
-                <c:forEach var="produto" items="${produtos}">
-                    <div>
-                    <section class="boxproduto leftproduto">
-                            <img src="imgs/tele.jpg" alt="tele" class="fotoproduto"/>
-                            <p class="pproduto"><c:out value="${produto.productName}"/></p>
-                            <p class="pproduto"><c:out value="${produto.price}"/></p>
-                            <p class="pproduto"><a href="${pageContext.request.contextPath}/usuario!testarUsuario.action" class="botaoproduto">Comprar</a></p>
-                    </section>
-                    </div>
-                </c:forEach>
+            <c:forEach var="produto" items="${produtos}">
+                <article class="boxproduto leftproduto">
+                    <img src="imgs/tele.jpg" alt="tele" class="fotoproduto"/>
+                    <p class="pproduto"><c:out value="${produto.productName}"/></p>
+                    <p class="pproduto"><c:out value="${produto.price}"/></p>
+                    <p class="pproduto"><a href="${pageContext.request.contextPath}/usuario!testarUsuario.action" class="botaoproduto">Comprar</a></p>
+                </article>
+            </c:forEach>
         </section>
         <%@include file="Footer.jspf" %>
     </body>

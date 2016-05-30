@@ -64,10 +64,16 @@ nav form input[type="submit"]:hover {
     margin-right: 80px;
     text-decoration: none;
 }
-fieldset{
+.fieldset1{
     margin-left: 40%;
     margin-right: 35%;
 }
+
+.fieldset2{
+    margin-left: 40%;
+    margin-right: 50%;
+}
+
 
 .formCadastro{
     margin-left: 10%;
@@ -167,6 +173,7 @@ footer{
     border: 1px solid black; 
     background-color: cadetblue; 
     color: black;
+    margin-left: 25%;
 }
 #containerdiv{
     width: 100%;
@@ -226,4 +233,12 @@ footer{
     padding: 1px 1px 1px 1px;
     border-radius: 8px;
     align-items: center;
+}
+
+.botaoproduto:hover{
+    background-color: darkslategray;
+}
+
+.centro {
+    margin-left: 40%
 }

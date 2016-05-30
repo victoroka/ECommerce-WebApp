@@ -14,17 +14,21 @@
     </head>
     <body>
         <%@include file="../../../TopMenu.jspf" %>
-        <h1>Usuario : remover</h1>
-        <p>Tem certeza que deseja remover este usuario?</p>
-        <form method="POST" action="${pageContext.request.contextPath}/usuario!confirmarRemocao.action">
-            <label for="codigo">C&oacute;digo:&nbsp;</label>
-            <input type="text" name="codigo" size="40" readonly="readonly" value="${userinfo.id_userinfo}" />
+        <section class="container">
+            <h1>Usuario : remover</h1>
+            <p>Tem certeza que deseja remover este usuario?</p>
+            <form method="POST" action="${pageContext.request.contextPath}/usuario!confirmarRemocao.action">
+                <label for="codigo">C&oacute;digo:&nbsp;</label>
+                <input type="text" name="codigo" size="40" readonly="readonly" value="${userinfo.id_userinfo}" />
+                <br>
+                <label for="nome">Nome:&nbsp;</label>
+                <input type="text" name="nome" size="40" readonly="readonly" value="${userinfo.nome}"/>
+                <br>
+                <input type="submit" value="Remover" />
+            </form>
             <br>
-            <label for="nome">Nome:&nbsp;</label>
-            <input type="text" name="nome" size="40" readonly="readonly" value="${userinfo.nome}"/>
-            <br>
-            <input type="submit" value="Remover" />
-        </form>
+            <a href="painelDeControle.jsp" class="botaoListar"><c:out value="Voltar"/></a>
+        </section>
         <%@include file="../../../Footer.jspf"%>
     </body>
 </html>

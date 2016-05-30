@@ -15,8 +15,8 @@
     <body>
         <%@include file="TopMenuSemForm.jspf" %>
         <section class="container">
-            <h1>Cadastro de Usu&aacute;rio</h1>
-            <fieldset>
+            <h1 class="centro">Cadastro de Usu&aacute;rio</h1>
+            <fieldset class="fieldset1">
                 <legend>Preencha&nbsp;o&nbsp;formul&aacute;rio abaixo:</legend>
                 <form method="POST" action="${pageContext.request.contextPath}/usuario!cadastrar.action" class="formCadastro">
                     <input type="text" name="nomeCompleto" size="40" required="required" placeholder="* Nome Completo" /><br>

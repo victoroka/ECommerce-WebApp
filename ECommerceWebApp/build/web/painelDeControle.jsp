@@ -19,8 +19,8 @@
         </c:if>
         <%@include file="TopMenu.jspf" %>
         <section class="container">
-            <h1>Painel&nbsp;de&nbsp;Controle</h1>
-            <fieldset>
+            <h1 class="centro">Painel&nbsp;de&nbsp;Controle</h1>
+            <fieldset class="fieldset2">
                 <legend>Escolha&nbsp;uma&nbsp;opera&ccedil;&atilde;o:</legend>
                 <a href="${pageContext.request.contextPath}/produto!novoProduto.action" class="botao">Cadastrar&nbsp;Produto</a>
                 <a href="${pageContext.request.contextPath}/produto!listar.action" class="botao">Listar&nbsp;Produtos</a>
