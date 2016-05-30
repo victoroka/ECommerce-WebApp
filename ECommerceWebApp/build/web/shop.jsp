@@ -11,6 +11,7 @@
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ECommerce</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%@include file="TopMenu.jspf" %>
@@ -20,14 +21,17 @@
 
         <section>
             <p>Produtos</p>
-            <table>
+          
                 <c:forEach var="produto" items="${produtos}">
-                    <tr class="celula">
-                        <td class="celula"><c:out value="${produto.productName}"/></td>
-                        <td class="celula"><c:out value="${produto.price}"/></td>
-                    </tr>
+                    <div>
+                    <section class="boxproduto leftproduto">
+                            <img src="imgs/tele.jpg" alt="tele" class="fotoproduto"/>
+                            <p class="pproduto"><c:out value="${produto.productName}"/></p>
+                            <p class="pproduto"><c:out value="${produto.price}"/></p>
+                            <p class="pproduto"><a href="${pageContext.request.contextPath}/usuario!testarUsuario.action" class="botaoproduto">Comprar</a></p>
+                    </section>
+                    </div>
                 </c:forEach>
-            </table>
         </section>
         <%@include file="Footer.jspf" %>
     </body>

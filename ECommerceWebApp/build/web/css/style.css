@@ -96,7 +96,7 @@ fieldset{
     padding: 15px 10px;
 }
 .container{
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     width: 100%;
     display:table;
     background-color: lightcyan;
@@ -196,4 +196,34 @@ footer{
 }
 .pabout{
     padding: 5px 70px 5px 70px;
+}
+.boxproduto{
+    width: 30%;
+    height: 260px;
+}
+.leftproduto{
+    float: left;
+    background-color: lightcyan;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+.pproduto{
+    padding: 5px 70px 0px 30px;
+    margin-bottom: -7px;
+}
+.fotoproduto{
+    margin-top: 20px;
+    margin-left: 24px;
+    width: 88%;
+    height: 45%;
+}
+.botaoproduto{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: darkcyan;
+    color: white;
+    padding: 1px 1px 1px 1px;
+    border-radius: 8px;
+    align-items: center;
 }

@@ -138,4 +138,22 @@ public class UsuarioAction extends ActionSupport {
             return "WEB-INF/jsp/usuario/produto.jsp";
         }
     }
+    
+    public String testarUsuario(){
+        String username = this.getRequest().getParameter("username");
+        String password = this.getRequest().getParameter("password");
+        
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuario = usuarioDAO.readByName(username);
+        if (usuario == null) {
+            this.getRequest().getSession().setAttribute("erromsg", "Você precisa se logar para comprar!");
+            return "WEB-INF/jsp/usuario/erro.jsp";
+        } else if (password.equals(usuario.getPassword())) {
+            return "WEB-INF/jsp/usuario/home.jsp";
+        } else {
+            this.getRequest().getSession().setAttribute("erromsg", "outro erro teste");
+            return "WEB-INF/jsp/usuario/erro.jsp";
+        }
+    }
 }
+    

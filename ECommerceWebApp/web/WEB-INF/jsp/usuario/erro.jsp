@@ -16,7 +16,7 @@
         <%@include file="../../../TopMenu.jspf" %>
         <section class="container">
             <h1>ECommerce</h1>
-            <h2>ERRO: ${erromsg}</h2>
+           <h2>ERRO: ${erromsg}</h2>
         </section>
         <%@include file="../../../Footer.jspf"%>
     </body>

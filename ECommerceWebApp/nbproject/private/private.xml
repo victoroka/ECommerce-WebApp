@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/java/br/mackenzie/fci/ec/lp2/action/UsuarioAction.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>150</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Victor/Documents/GitHub/ProjetoLP/ECommerceWebApp/web/shop.jsp</file>
-            <file>file:/C:/Users/Victor/Documents/GitHub/ProjetoLP/ECommerceWebApp/web/TopMenuSemForm.jspf</file>
-            <file>file:/C:/Users/Victor/Documents/GitHub/ProjetoLP/ECommerceWebApp/src/java/br/mackenzie/fci/ec/lp2/action/ProdutoAction.java</file>
-            <file>file:/C:/Users/Victor/Documents/GitHub/ProjetoLP/ECommerceWebApp/web/index.jsp</file>
-            <file>file:/C:/Users/Victor/Documents/GitHub/ProjetoLP/ECommerceWebApp/web/WEB-INF/jsp/produto/listar.jsp</file>
-            <file>file:/C:/Users/Victor/Documents/GitHub/ProjetoLP/ECommerceWebApp/web/TopMenu.jspf</file>
+            <file>file:/Users/Lucas/Documents/Ciência%20da%20Computação/3o%20Semestre/LP%202/Cacique/ProjetoLP/ECommerceWebApp/web/shop.jsp</file>
+            <file>file:/Users/Lucas/Documents/Ciência%20da%20Computação/3o%20Semestre/LP%202/Cacique/ProjetoLP/ECommerceWebApp/src/java/br/mackenzie/fci/ec/lp2/action/ProdutoAction.java</file>
+            <file>file:/Users/Lucas/Documents/Ciência%20da%20Computação/3o%20Semestre/LP%202/Cacique/ProjetoLP/ECommerceWebApp/src/java/br/mackenzie/fci/ec/lp2/action/UsuarioAction.java</file>
+            <file>file:/Users/Lucas/Documents/Ciência%20da%20Computação/3o%20Semestre/LP%202/Cacique/ProjetoLP/ECommerceWebApp/web/painelDeControle.jsp</file>
+            <file>file:/Users/Lucas/Documents/Ciência%20da%20Computação/3o%20Semestre/LP%202/Cacique/ProjetoLP/ECommerceWebApp/src/java/br/mackenzie/fci/ec/lp2/frontcontroller/Controller.java</file>
+            <file>file:/Users/Lucas/Documents/Ciência%20da%20Computação/3o%20Semestre/LP%202/Cacique/ProjetoLP/ECommerceWebApp/web/WEB-INF/jsp/usuario/erro.jsp</file>
         </group>
     </open-files>
 </project-private>
