@@ -242,3 +242,16 @@ footer{
 .centro {
     margin-left: 40%
 }
+#fotosection{
+    width: 100%;
+    margin: 0 auto;
+}
+.fotohome{
+    padding: 5px 5px 70px 35px;
+    width: 1205px;
+    height: 700px;
+    
+}
+h1{
+    margin-left: 20px;
+}

@@ -17,8 +17,8 @@
         <section class="container">
             <h1>ECommerce</h1>
         </section>
-        <section class="container">
-           <p>Index</p>
+        <section id="fotosection">
+            <img src="imgs/homefoto.jpg" alt="foto da home" class="fotohome"/>
         </section>
         <%@include file="Footer.jspf" %>
     </body>

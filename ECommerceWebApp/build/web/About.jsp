@@ -22,9 +22,9 @@
                     <img src="imgs/lucasimg.jpg" alt="Imagem do DevLucas" class="foto"/>
                     <figcaption class="textofig">Lucas&nbsp;Portella</figcaption>
                 </figure>
-                <p class="pabout">Luquinas é menino que utiliza das drogas mais pesadas, AKA League of Legends; Menes; Twitter e Carreta Furacão. asuidhfsauihxkjcvnaskngwu4thqw8h oasjdf 2uvhasdknvxczkjvn3urwgsaucvhzjkmqwrfsda rwfjq3igmsaklnvas 2asklgjas</p>
-                <p class="pabout">ASFASVNXCVN GHJ89ASDHFASDF VASMASDFMWL4MFLKSDMVM WIJ2Q8HGODIAFNVALSVMSALKGN3NSALKD QWFJ2IO JSAD</p>
-                <p class="pabout">ASFASVNXCVN GHJ89ASDHFASDF VASMASDFMWL4MFLKSDMVM WIJ2Q8HGODIAFNVALSVMSALKGN3NSALKD QWFJ2IO JSAD</p>
+                <p class="pabout">Lucas Portella Santos tem 21 anos, gosta de rock alternativo e indie folk, tendo como artistas preferidos Lucy Rose, City and Colour e Muse.</p>
+                <p class="pabout">Nas horas vagas toca guitarra, canta, joga jogos eletrônicos, como League of Legends, e assiste séries, como The Office, Homeland e The Americans. </p>
+                <p class="pabout">Sempre gostou de tecnologia, desde criança quando se envolveu com video-games e computadores, e também sempre acompanhou assuntos relacionados a astronomia.</p>
             </article>
         </section>
              <section class="box right">
